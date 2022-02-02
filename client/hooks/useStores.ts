@@ -1,5 +1,5 @@
 import { useContext, createContext } from 'react'
-import { rootStore } from 'stores'
+import { rootStore } from '../stores'
 
 const storeContext = createContext(rootStore)
 
