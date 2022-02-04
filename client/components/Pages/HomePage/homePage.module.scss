@@ -1,0 +1,24 @@
+.container {
+  background-color: #0e2428;
+  padding: 52px 165px 42px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    color: #ffffff;
+
+    margin-top: 54px;
+  }
+
+  .pagination {
+    float: right;
+  }
+}
