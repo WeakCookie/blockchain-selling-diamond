@@ -1,8 +1,12 @@
 async function main() {
     const Transactions = await ethers.getContractFactory("Transactions");
+    const MyNFT = await ethers.getContractFactory("MyNFT")
 
     const transactionsContract = await Transactions.deploy();
-    console.log("Contract deployed to address:", transactionsContract.address);
+    console.log("Transactions Contract deployed to address:", transactionsContract.address);
+
+    const myNFT = await MyNFT.deploy();
+    console.log("MyNFT Contract deployed to address:", myNFT.address);
 }
 
 const runMain = async () => {
@@ -14,5 +18,3 @@ const runMain = async () => {
         process.exit(1);
     }
 };
-
-runMain();

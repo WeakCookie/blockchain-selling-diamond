@@ -1,0 +1,15 @@
+{
+    "attributes": [
+      {
+        "trait_type": "Shine",
+        "value": "100"
+      },
+      {
+        "trait_type": "Hype",
+        "value": "Very"
+      }
+    ],
+    "description": "The world's most expensive diamond",
+    "image": "https://gateway.pinata.cloud/ipfs/Qmce96xG7GK17jX3wVq8RPf7KwgLZvgrcJ5SbwKc4qKQFj?preview=1",
+    "name": "diamond_1"
+  }
