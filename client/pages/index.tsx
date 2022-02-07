@@ -9,6 +9,8 @@ import styles from '../styles/Home.module.css'
 const Home: NextPage = () => {
   const { accountStore, transactionStore } = useStores()
   const { currentAccount } = accountStore
+  const { nfts } = transactionStore
+  console.log("🚀 ~ file: index.tsx ~ line 13 ~ nfts", nfts)
   const testSendPayload = {
     addressTo: '0x0dB36e49c8982Cb76DFC2dA7F253011472147D12',
     amount: '0.0001',
@@ -19,6 +21,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     transactionStore.getAllTransactions()
     // TODO: get current logged in account using window.ethereum.selectedAccount
+    transactionStore.fetchAllNFTsListed()
   }, [])
 
   return (

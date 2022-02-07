@@ -1,7 +1,10 @@
-import { makeObservable, observable } from 'mobx'
-import { RootStore } from '.'
 import { ethers } from "ethers"
+import { makeObservable, observable } from 'mobx'
 import { contractABI, contractAddress } from '../constants/TransactionContract'
+import { RootStore } from '.'
+import { get } from "lodash"
+import { api } from "../API"
+import { publicAddressStoreMaster } from "../constants/common"
 
 class TransactionStore {
   rootStore: RootStore
@@ -9,12 +12,14 @@ class TransactionStore {
     this.rootStore = rootStore
     makeObservable(this, {
       transactions: observable,
-      isLoading: observable
+      isLoading: observable,
+      nfts: observable
     })
   }
 
   transactions: any[] = []
   isLoading = false
+  nfts: any[] = []
 
   private createEthereumContract () {
     const { ethereum } = window as any
@@ -87,6 +92,11 @@ class TransactionStore {
 
       throw new Error("No ethereum object")
     }
+  }
+
+  public async fetchAllNFTsListed () {
+    const data = await api.get(`https://testnets-api.opensea.io/api/v1/assets?owner=${publicAddressStoreMaster}&order_direction=desc&offset=0&limit=20`)
+    this.nfts = get(data, 'data.assets', [])
   }
 }
 

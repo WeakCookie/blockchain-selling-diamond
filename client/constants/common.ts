@@ -1,0 +1,1 @@
+export const publicAddressStoreMaster = '0x811672B59F39dd8dA5983D87304feD9FF6E73062'
